@@ -1,5 +1,8 @@
 # D3 Homework - Data Journalism and D3
 
+Note: To see the Challenge display please enter the following link:
+https://jamc7196.github.io/D3-Challenge/StarterCode/
+
 ![Newsroom](https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif)
 
 ## Background
