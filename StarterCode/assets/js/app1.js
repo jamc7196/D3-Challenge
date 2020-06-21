@@ -63,21 +63,22 @@ d3.csv("assets/data/data.csv")
         .style('fill', 'black')
         .text(d => (d.abbr));
 // 9) Initialize tool tip with all the previouse data.
-    var ToolTip = d3.select("scatter")
-        .append("div")
+    var toolTip = d3.tip()
         .attr("class", "tooltip")
-        .style("color", "white")
+        .offset([80,-60])
         .html(function(d) {
             return (`${d.state}<hr>Poverty: ${d.poverty}%<br>Healthcare: ${d.healthcare}%`)
         });
-//10) Use a "mouseover" event to display tool tip.
-    stategroup.on("mouseover", function(d) {
-        ToolTip.style("fill", "green")
+// 10) Create the tooltip in chartGroup.
+        ResearchChart.call(toolTip);
+//11) Use a "mouseover" event to display tool tip.
+        stategroup.on("mouseover", function(d) {
+        toolTip.style("fill", "green")
     })
 //12) Use a "mouseout" event to stop displaying tool tip.   
-        //.on("mouseout", function() {
-            //toolTip.style("display", "none");
-        //});        
+        .on("mouseout", function() {
+        toolTip.style("display", "none");
+        });        
 //13) Create  your axes labels.
     ResearchChart.append("text")
         .attr("transform", "rotate(-90)")
